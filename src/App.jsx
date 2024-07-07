@@ -4,6 +4,8 @@ import Cabecalho from "./componentes/Cabecalho"
 import BarraLateral from "./componentes/BarraLateral"
 import Banner from "./componentes/Banner"
 import Galeria from "./componentes/Galeria"
+import fotos from "./fotos.json"
+import { useState } from "react"
 
 const FundoGradiente = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -18,7 +20,6 @@ const Container = styled.div`
 `
 const CorpoContainer = styled.div`
   display: flex;
-  align-items: center;
   gap: 24px;
 `
 const ApresentacaoContainer = styled.section`
@@ -27,7 +28,8 @@ const ApresentacaoContainer = styled.section`
   flex-grow: 1;
 `
 
-function App() {
+const App = () => {
+  const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos)
   return (
     <FundoGradiente>
       <EstilosGlobais />
@@ -37,7 +39,7 @@ function App() {
           <BarraLateral />
           <ApresentacaoContainer>
             <Banner />
-            <Galeria />
+            <Galeria fotos={fotosDaGaleria}/>
           </ApresentacaoContainer>
         </CorpoContainer>
       </Container>
