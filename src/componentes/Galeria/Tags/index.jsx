@@ -32,12 +32,12 @@ const Botao = styled.button`
 
 `
 
-const Tags = () => {
+const Tags = ({ setTag }) => {
     return (
         <TagsConteainer>
             <TituloTag>Busque por tags:</TituloTag>
             <BotaoTags>
-                {tags.map(tag => <Botao key={tag.id}>{tag.titulo}</Botao>)}
+                {tags.map(tag => <Botao key={tag.id} onClick={() => setTag(tag.tag)}>{tag.titulo}</Botao>)}
             </BotaoTags>
         </TagsConteainer>
     )
